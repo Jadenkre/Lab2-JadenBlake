@@ -1,13 +1,13 @@
 class Quicksort {
 
-    void quickSort(TestInteger arr[], int low, int high) {
+    public static void quickSort(TestInteger[] arr, int low, int high) {
         if (low < high) {
             int pi = partition(arr, low, high);
             quickSort(arr, low, pi - 1);
             quickSort(arr, pi + 1, high);
         }
     }
-    static int partition(TestInteger arr[], int low, int high) {
+    static int partition(TestInteger[] arr, int low, int high) {
         TestInteger pivot = arr[high];
         int i = (low - 1);
 
@@ -21,7 +21,7 @@ class Quicksort {
         return i + 1;
     }
 
-    static void swap(TestInteger arr[], int i, int j) {
+    static void swap(TestInteger[] arr, int i, int j) {
         TestInteger temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
