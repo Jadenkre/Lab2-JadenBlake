@@ -13,7 +13,7 @@ public class Main {
 
             TestInteger[] arr1 = Arrays.copyOf(baseArray, baseArray.length);
             TestInteger[] arr2 = Arrays.copyOf(baseArray, baseArray.length);
-            TestInteger[] arr3 = Arrays.copyOf(baseArray, baseArray.length);
+
             //quick sort test
 
             //reset counter
@@ -41,16 +41,6 @@ public class Main {
             long mergeCount = TestInteger.getCounter();
             float mergeTimer = end - start;
 
-            //Random Pivot Quick sort
-
-            //reset counter
-            start = System.nanoTime();
-            RandomQuicksort.quickSort(arr3, 0, arr3.length - 1);
-            end = System.nanoTime();
-            //Create unique count for random pivot quick sort
-            long randQuickCount = TestInteger.getCounter();
-            float randQuickTimer = end - start;
-
 
             System.out.printf("""
                     %s test %d Result Comparison:
@@ -58,14 +48,10 @@ public class Main {
                      \
                     Merge Sort: %d
                      \
-                    R_Pivot Quick Sort: %d
-                     \
                     Quicksort run time: %.2f ms
                      \
                     Mergesort run time: %.2f ms
-                     \
-                    R-Pivot Quick Sort: %.2f ms
-                    """,testName,run, quickCount, mergeCount,randQuickCount, quickTimer / 1000000, mergeTimer / 1000000, randQuickTimer / 1000000);
+                    """,testName,run, quickCount, mergeCount, quickTimer / 1000000, mergeTimer / 1000000);
 
 
         }
@@ -81,6 +67,5 @@ public class Main {
         runExperiment("Increasing Array",ArrayPopulate.increasingArray(n));
         runExperiment("Sorted Chunks",ArrayPopulate.sortedChunks(n, 1000));
         runExperiment("Reversed Chunks",ArrayPopulate.reverseChunks(n, 1000));
-
     }
 }
