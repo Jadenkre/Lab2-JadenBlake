@@ -1,6 +1,6 @@
 import java.util.Random;
 
-class Quicksort {
+class RandomQuicksort {
 
     public static void quickSort(TestInteger[] arr, int low, int high) {
         if (low < high) {
