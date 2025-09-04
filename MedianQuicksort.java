@@ -1,6 +1,4 @@
-import java.util.Random;
-
-class RandomQuicksort {
+class MedianQuicksort {
 
     public static void quickSort(TestInteger[] arr, int low, int high) {
         if (low < high) {
@@ -10,11 +8,21 @@ class RandomQuicksort {
         }
     }
     static int partition(TestInteger[] arr, int low, int high) {
-        Random rand = new Random();
-        int rPivot = rand.nextInt(high);
-        TestInteger pivot = arr[rPivot];
-        int i = (low - 1);
+        int mid = low + (high - low) / 2;
+        if (arr[low].compareTo(arr[mid]) > 0) {
+            swap(arr, low, mid);
+        }
+        if (arr[low].compareTo(arr[high]) > 0) {
+        swap(arr, low, high);
+        }
+        if (arr[mid].compareTo(arr[high]) > 0) {
+            swap(arr, mid, high);
+        }
 
+        swap(arr, mid, high);
+        TestInteger pivot = arr[high];
+
+        int i = (low - 1);
         for (int j = low; j < high; j++) {
             if (arr[j].compareTo(pivot) <= 0) {
                 i++;
