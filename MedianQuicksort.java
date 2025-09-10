@@ -1,4 +1,4 @@
-class MedianQuicksort {
+class MedianOfThreeQuicksort {
 
     public static void quickSort(TestInteger[] arr, int low, int high) {
         if (low < high) {

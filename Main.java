@@ -1,4 +1,7 @@
+// Code comprised by Jaden Rainey and Blake Thompson;
+
 import java.util.Arrays;
+
 
 public class Main {
     public static int runs = 5;
@@ -17,6 +20,7 @@ public class Main {
             TestInteger[] arr2 = Arrays.copyOf(baseArray, baseArray.length);
             TestInteger[] arr3 = Arrays.copyOf(baseArray, baseArray.length);
             TestInteger[] arr4 = Arrays.copyOf(baseArray, baseArray.length);
+            TestInteger[] arr5 = Arrays.copyOf(baseArray, baseArray.length);
 
             // 1. Standard Quick Sort Test
             TestInteger.resetCounter();
@@ -50,6 +54,14 @@ public class Main {
             long quickInCount = TestInteger.getCounter();
             float quickInTimer = end - start;
 
+            // 5. MedianQuickSort Test
+            TestInteger.resetCounter();
+            start = System.nanoTime();
+            MedianOfThreeQuicksort.quickSort(arr5, 0, arr5.length - 1);
+            end = System.nanoTime();
+            long medianQuickCounter = TestInteger.getCounter();
+            float medianTimer = end - start;
+
             System.out.printf("""
                     
                     --- Run %d ---
@@ -58,22 +70,26 @@ public class Main {
                       Merge Sort:             %d
                       R-Pivot Quick Sort:     %d
                       Quick-Insertion Sort:   %d
+                      MedianQuickSort:        %d
                     
                     Runtime (ms):
                       Quick Sort:             %.2f
                       Merge Sort:             %.2f
                       R-Pivot Quick Sort:     %.2f
                       Quick-Insertion Sort:   %.2f
+                      MedianQuickSort:        %.2f
                     """,
                     run,
                     quickCount,
                     mergeCount,
                     randQuickCount,
                     quickInCount,
+                    medianQuickCounter,
                     quickTimer / TIME_DIV,
                     mergeTimer / TIME_DIV,
                     randQuickTimer / TIME_DIV,
-                    quickInTimer / TIME_DIV);
+                    quickInTimer / TIME_DIV,
+                    medianTimer / TIME_DIV);
         }
 
         System.out.println("\n------------------------------------------");
