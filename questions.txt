@@ -1,0 +1,19 @@
+How do different versions of sorting act differently? 
+    All quicksort implementations had way more comparison compared to mergesort
+How do different kinds of data affect each kind of the sorting? 
+    Random Array:
+        quicksort was much more competitive with mergesort, random pivot mergesort had a really tough time with around 7x~ the comparisons
+
+    Increasing Array:
+        quicksort suffered much more on this one while mergesort prospered, random pivot only did a little worse compared to random Array
+
+    Sorted Chunks:
+        quicksort is doing a little better but still has a lot of comparisons, mergesort and random are relatively unchanged
+
+    Reversed Chunks:
+        again a little better for quicksort and unchanged for mergesort and random pivot quicksort
+
+    for all test the quick insertion sort implementation always did just a little bit better in terms of comparisons compared to regular quick sort
+Which improvements of quicksort performed better? If you can provide an explanation, please do, but it's not required.
+    Random pivot did better on all of them except for the random array, and quick insertion did better on all of them but only slightly
+ 
